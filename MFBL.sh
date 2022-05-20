@@ -23,6 +23,7 @@ ubuntu_check() {
 }
 #正片开始
 menu(){
+clear
 echo "------------MFBL安装程序-----------------"
 echo "  1.一键安装java default + MCJAVA 1.16.5"
 echo ""
@@ -45,16 +46,19 @@ case $num in
     wget https://raw.githubusercontent.com/Kihh/MFBL/main/eula.txt
     wget https://raw.githubusercontent.com/Kihh/MFBL/main/olmode/server.properties
     echo "java default + MCJAVA 1.16.5 安装成功，请执行2开启服务端！"
+    menu
 	;;
 	2)
     clear
     echo "正在启动Minecraft服务端，已自动同意EULA协议"
     sudo java -Xms1024m -Xmx1024m -jar server.jar nogui
     echo "服务端已关闭！"
+    menu
 	;;
     3)
     wget https://raw.githubusercontent.com/Kihh/MFBL/main/falseolmode/server.properties
     echo "关闭正版验证成功！"
+    menu
 	;;
 	4)
 	exit 0
