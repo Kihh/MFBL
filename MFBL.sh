@@ -21,16 +21,7 @@ ubuntu_check() {
         exit 1
     fi
 }
-
-# 说明
-echo
-echo -e "$yellow此脚本适用于Ubuntu系统，最佳适用于Ubuntu 20+系统，非Ubuntu系统请重装后部署此脚本！按Ctrl + C退出MFBL$none"
-echo "----------------------------------------------------------------"
-read -rsp "$(echo -e "点按 $green Enter  $none 继续   或按 $red Ctrl + C $none 退出脚本.")" -d $'\n'
-echo
-#更新系统centos+ubuntu
-apt update
-apt install -y bash curl sudo screen
+#正片开始
 menu(){
 echo "------------MFBL安装程序-----------------"
 echo "  1.一键安装java default + MCJAVA 1.16.5"
@@ -73,3 +64,14 @@ case $num in
 	menu
 esac
 }
+
+# 说明
+echo
+echo -e "$yellow此脚本适用于Ubuntu系统，最佳适用于Ubuntu 20+系统，非Ubuntu系统请重装后部署此脚本！按Ctrl + C退出MFBL$none"
+echo "----------------------------------------------------------------"
+read -rsp "$(echo -e "点按 $green Enter  $none 继续   或按 $red Ctrl + C $none 退出脚本.")" -d $'\n'
+echo
+#更新系统centos+ubuntu
+apt update
+apt install -y bash curl sudo screen
+menu
