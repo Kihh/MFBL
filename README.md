@@ -1,4 +1,4 @@
-# MFBL V1.0 使用教程
+# MFBL V2.0 使用教程
 ### 脚本仅限于Ubuntu系统！推荐Ubuntu20+系统，非Ubuntu系统请重装后部署此脚本！
 #### 一键安装脚本</br>
 ```shell
