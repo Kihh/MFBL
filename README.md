@@ -1,4 +1,4 @@
-#MFBL V1.0
+# MFBL V1.0 使用教程
 一键安装</br>
 ```shell
 sh -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL.sh -O -)"
