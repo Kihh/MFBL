@@ -65,7 +65,6 @@ case $num in
 	;;
 	*)
 	clear
-	menu
 esac
 }
 
