@@ -65,7 +65,7 @@ case $num in
     cmenu
 	;;
     3)
-    wget https://raw.githubusercontent.com/Kihh/MFBL/main/falseolmode/server.properties
+    wget -N https://raw.githubusercontent.com/Kihh/MFBL/main/falseolmode/server.properties
     echo "关闭正版验证成功！"
     cmenu
 	;;
