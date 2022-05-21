@@ -33,7 +33,7 @@ echo "  3.穷请点此，替换覆盖关闭正版验证文件"
 echo ""
 echo "  4.退出脚本"
 echo "----------------------------------------"
-echo "$yellow#如有需要自行挂screen运行本脚本，脚本已自动安装screen$none"
+echo "$red #如有需要自行挂screen运行本脚本，脚本已自动安装screen $none"
 
 read -e -p "请输入对应的数字：" num
 case $num in
