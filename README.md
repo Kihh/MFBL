@@ -6,6 +6,7 @@ bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL.sh -O -)"
 ```
 </br>
 国内主机请修改HOSTS文件（root权限下）</br>
+</br>
 ```shell
 sed -i '$a\185.199.109.133 raw.githubusercontent.com' /etc/hosts
 ```
