@@ -5,11 +5,12 @@
 bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL.sh -O -)"
 ```
 </br>
-#### 国内主机请使用jsdelivr代理线路安装 </br>
+#### 国内主机请使用jsdelivr代理线路安装</br>
+
 ```shell
 bash -c "$(wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL.sh -O -)"
 ```
-</br>
+
 </br>
 推荐容器测试环境
 </br>
