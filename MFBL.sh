@@ -52,8 +52,8 @@ case $num in
     apt install -y bash curl sudo screen
     sudo apt install default-jdk -y
     wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
-    wget https://raw.githubusercontent.com/Kihh/MFBL/main/eula.txt
-    wget https://raw.githubusercontent.com/Kihh/MFBL/main/olmode/server.properties
+    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
+    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/olmode/server.properties
     echo "java default + MCJAVA 1.16.5 安装成功，请执行2开启服务端！"
     cmenu
 	;;
@@ -65,7 +65,7 @@ case $num in
     cmenu
 	;;
     3)
-    wget -N https://raw.githubusercontent.com/Kihh/MFBL/main/falseolmode/server.properties
+    sed -i "s/online-mode=true/online-mode=false/g" server.properties
     echo "关闭正版验证成功！"
     cmenu
 	;;
