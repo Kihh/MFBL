@@ -9,6 +9,7 @@ bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL.sh -O -)"
 ```shell
 sed -i '$a\185.199.109.133 raw.githubusercontent.com' /etc/hosts
 ```
+</br>
 推荐容器测试环境</br>
 https://ide.goorm.io/</br>
 (数据永久保存，退出休眠不山鸡，风控严，支持端口转发)
