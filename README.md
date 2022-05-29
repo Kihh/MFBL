@@ -12,7 +12,7 @@ bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL.sh -O -)"
 ```shell
 bash -c "$(wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL.sh -O -)"
 ```
-由于CDN缓存问题，如果下载到的不是最新版本请等待2-3小时！
+由于CDN缓存问题，如果下载到的不是最新版本请等待2-3小时后重新下载部署！
 
 </br>
 推荐容器测试环境
