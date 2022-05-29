@@ -53,7 +53,7 @@ case $num in
     sudo apt install default-jdk -y
     wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
     wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
-    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/olmode/server.properties
+    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
     echo "java default + MCJAVA 1.16.5 安装成功，请执行2开启服务端！"
     cmenu
 	;;
