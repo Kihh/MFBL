@@ -1,5 +1,5 @@
 # Minecraft Fast Build in Linux 使用教程
-### 一键安装脚本</br>
+### Ubuntu一键安装脚本</br>
 ```shell
 bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL.sh -O -)"
 ```
