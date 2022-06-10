@@ -59,7 +59,7 @@ case $num in
 	;;
 	2)
     clear
-    screen -S MFBL
+    screen -S mfbl
     echo "正在启动Minecraft服务端，已自动同意EULA协议"
     sudo java -Xms1024m -Xmx1024m -jar server.jar nogui
     echo "服务端已关闭！"
@@ -82,7 +82,7 @@ case $num in
 	;;
     5)
     clear
-    screen -S MFBL
+    screen -S mfbl
     echo "正在启动Minecraft Bedrock服务端"
     LD_LIBRARY_PATH=. ./bedrock_server
     echo "服务端已关闭！"
