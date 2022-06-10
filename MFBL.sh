@@ -33,7 +33,7 @@ echo "  1.一键安装java default + MC java 1.16.5"
 echo ""
 echo "  2.启动 MC Java 服务端"
 echo ""
-echo "  3.关闭MC Java正版验证"
+echo "  3. 关闭MC Java正版验证"
 echo ""
 echo "  4.一键安装MC Bedrock 1.18.33.02"
 echo ""
@@ -53,12 +53,13 @@ case $num in
     sudo apt install default-jdk -y
     wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
     wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
-    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
+    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/olmode/server.properties
     echo "java default + MCJAVA 1.16.5 安装成功，请执行2开启服务端！"
     cmenu
 	;;
 	2)
     clear
+    screen -S MFBL
     echo "正在启动Minecraft服务端，已自动同意EULA协议"
     sudo java -Xms1024m -Xmx1024m -jar server.jar nogui
     echo "服务端已关闭！"
@@ -81,6 +82,7 @@ case $num in
 	;;
     5)
     clear
+    screen -S MFBL
     echo "正在启动Minecraft Bedrock服务端"
     LD_LIBRARY_PATH=. ./bedrock_server
     echo "服务端已关闭！"
