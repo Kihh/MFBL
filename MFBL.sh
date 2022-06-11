@@ -26,6 +26,55 @@ cmenu() {
     echo && echo -n -e "${yellow}* 按回车返回主菜单 *${none}" && read temp
     menu
 }
+vmenu() {
+    clear
+    echo "------------MC Java 版本-----------------"
+    echo "  1. 安装Java(default-jdk)"
+    echo ""
+    echo "  2. 下载MC 1.16.5服务端"
+    echo ""
+    echo "  3. 下载MC 1.12.2服务端"
+    echo ""
+    echo "  4. 返回主菜单"
+    echo "----------------------------------------"
+    
+    read -e -p "请输入对应的数字：" num
+    case $num in
+    1)
+        clear
+        ubuntu_check
+        echo "开始安装Java(default-jdk)"
+        apt-get update -y
+        sudo apt install default-jdk -y
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
+        echo "Java(default-jdk) 安装成功!"
+        cmenu
+        ;;
+    2)
+        clear
+        ubuntu_check
+        echo "开始下载MC 1.16.5服务端"
+        wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar -O server.jar
+        echo "MC 1.16.5服务端 下载成功!"
+        cmenu
+        ;;
+    3)
+        clear
+        ubuntu_check
+        echo "开始下载MC 1.12.2服务端"
+        wget https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar -O server.jar
+        echo "MC 1.12.2服务端 下载成功!"
+        cmenu
+        ;;
+    4)
+        menu
+        ;;
+    *)
+        clear
+        ;;
+    esac
+}
 jmenu() {
     clear
     echo "------------MC Java 配置-----------------"
@@ -92,7 +141,7 @@ jmenu() {
 menu() {
     clear
     echo "------------MFBL安装程序-----------------"
-    echo "  1. 一键安装java default + MC java 1.16.5"
+    echo "  1. MC Java服务端版本安装"
     echo ""
     echo "  2. 启动 MC Java 服务端"
     echo ""
