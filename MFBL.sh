@@ -88,13 +88,10 @@ jmenu() {
         ;;
     esac
 }
-ver() {
-    
-}
 #正片开始
 menu() {
     clear
-    echo "${yellow}------------MFBL安装程序-----------------"
+    echo "------------MFBL安装程序-----------------"
     echo "  1. 一键安装java default + MC java 1.16.5"
     echo ""
     echo "  2. 启动 MC Java 服务端"
@@ -106,7 +103,7 @@ menu() {
     echo "  6. 启动 MC Bedrock 服务端"
     echo ""
     echo "  7. 退出脚本"
-    echo "----------------------------------------${none}"
+    echo "----------------------------------------"
 
     read -e -p "请输入对应的数字：" num
     case $num in
