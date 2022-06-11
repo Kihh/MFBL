@@ -28,12 +28,12 @@ cmenu() {
 }
 jmenu() {
     clear
-    echo "${yellow}------------MC Java 配置-----------------"
+    echo "------------MC Java 配置-----------------"
     echo "  1. 关闭MC Java正版验证"
     echo ""
     echo "  2. 开启MC Java正版验证"
     echo ""
-    echo "  3. 设置MC Java服务器启动内存(当前：${neicun} ）"
+    echo "  3. 设置MC Java服务器启动内存(当前：${neicun} )"
     echo ""
     echo "  4. 启用命令方块"
     echo ""
@@ -42,7 +42,7 @@ jmenu() {
     echo "  6. 更换阿里云安装源（非开发人员勿动）"
     echo ""
     echo "  7. 返回主菜单"
-    echo "----------------------------------------${none}"
+    echo "----------------------------------------"
 
     read -e -p "请输入对应的数字：" num
     case $num in
