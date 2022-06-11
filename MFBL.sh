@@ -10,7 +10,7 @@ _green() { echo -e ${green}$*${none}; }
 _yellow() { echo -e ${yellow}$*${none}; }
 _magenta() { echo -e ${magenta}$*${none}; }
 _cyan() { echo -e ${cyan}$*${none}; }
-
+neicun=1024
 error() {
     echo -e "\n$red 输入有误! $none\n"
 }
@@ -35,13 +35,14 @@ echo "  2.启动 MC Java 服务端"
 echo ""
 echo "  3. 关闭MC Java正版验证"
 echo ""
-echo "  4.一键安装MC Bedrock 1.18.33.02"
+echo "  4. 设置MC Java服务器启动内存(当前：${neicun} ）"
 echo ""
-echo "  5.启动 MC Bedrock 服务端"
+echo "  5.一键安装MC Bedrock 1.18.33.02"
 echo ""
-echo "  6.退出脚本"
+echo "  6.启动 MC Bedrock 服务端"
+echo ""
+echo "  7.退出脚本"
 echo "----------------------------------------"
-echo "#如有需要自行挂screen运行本脚本，运行一键安装后会自动安装screen"
 
 read -e -p "请输入对应的数字：" num
 case $num in
@@ -53,7 +54,7 @@ case $num in
     sudo apt install default-jdk -y
     wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
     wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
-    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/olmode/server.properties
+    wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
     echo "java default + MCJAVA 1.16.5 安装成功，请执行2开启服务端！"
     cmenu
 	;;
@@ -61,7 +62,7 @@ case $num in
     clear
     screen -S mfbl
     echo "正在启动Minecraft服务端，已自动同意EULA协议"
-    sudo java -Xms1024m -Xmx1024m -jar server.jar nogui
+    sudo java -Xms${neicun}m -Xmx${neicun}m -jar server.jar nogui
     echo "服务端已关闭！"
     cmenu
 	;;
@@ -70,7 +71,13 @@ case $num in
     echo "关闭正版验证成功！"
     cmenu
 	;;
+    #设置内存
     4)
+    read -p "设置MC Java服务器内存:" neicun
+    echo "当前内存为= ${neicun}"
+    cmenu
+	;;
+    5)
     clear
     ubuntu_check
     echo "开始安装MC Bedrock 1.18.33.02"
@@ -80,7 +87,7 @@ case $num in
     echo "MC Bedrock 1.18.33.02安装成功，请执行5开启服务端！"
     cmenu
 	;;
-    5)
+    6)
     clear
     screen -S mfbl
     echo "正在启动Minecraft Bedrock服务端"
@@ -88,7 +95,7 @@ case $num in
     echo "服务端已关闭！"
     cmenu
 	;;
-	6)
+	7)
 	exit 0
 	;;
 	*)
