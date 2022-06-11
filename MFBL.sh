@@ -37,7 +37,7 @@ echo "  3. 关闭MC Java正版验证"
 echo ""
 echo "  4. 设置MC Java服务器启动内存(当前：${neicun} ）"
 echo ""
-echo "  5.一键安装MC Bedrock 1.18.33.02"
+echo "  5.一键安装MC Bedrock 1.19.1.01"
 echo ""
 echo "  6.启动 MC Bedrock 服务端"
 echo ""
@@ -60,7 +60,6 @@ case $num in
 	;;
 	2)
     clear
-    screen -S mfbl
     echo "正在启动Minecraft服务端，已自动同意EULA协议"
     sudo java -Xms${neicun}m -Xmx${neicun}m -jar server.jar nogui
     echo "服务端已关闭！"
@@ -80,16 +79,15 @@ case $num in
     5)
     clear
     ubuntu_check
-    echo "开始安装MC Bedrock 1.18.33.02"
+    echo "开始安装MC Bedrock 1.19.1.01"
     apt install -y bash curl sudo screen unzip
-    wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.33.02.zip
-    unzip bedrock-server-1.18.33.02.zip
-    echo "MC Bedrock 1.18.33.02安装成功，请执行5开启服务端！"
+    wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.1.01.zip
+    unzip bedrock-server-1.19.1.01.zip
+    echo "MC Bedrock 1.19.1.01安装成功，请执行5开启服务端！"
     cmenu
 	;;
     6)
     clear
-    screen -S mfbl
     echo "正在启动Minecraft Bedrock服务端"
     LD_LIBRARY_PATH=. ./bedrock_server
     echo "服务端已关闭！"
