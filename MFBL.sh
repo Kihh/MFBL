@@ -11,6 +11,7 @@ _yellow() { echo -e ${yellow}$*${none}; }
 _magenta() { echo -e ${magenta}$*${none}; }
 _cyan() { echo -e ${cyan}$*${none}; }
 neicun=1024
+port=25565
 error() {
     echo -e "\n$red 输入有误! $none\n"
 }
@@ -27,15 +28,21 @@ cmenu() {
 }
 jmenu() {
     clear
-    echo "------------MC Java 配置-----------------"
+    echo "${yellow}------------MC Java 配置-----------------"
     echo "  1. 关闭MC Java正版验证"
     echo ""
-    echo "  2. 设置MC Java服务器启动内存(当前：${neicun} ）"
+    echo "  2. 开启MC Java正版验证"
     echo ""
-    echo "  3. 更换阿里云安装源"
+    echo "  3. 设置MC Java服务器启动内存(当前：${neicun} ）"
     echo ""
-    echo "  4. 返回主菜单"
-    echo "----------------------------------------"
+    echo "  4. 启用命令方块"
+    echo ""
+    echo "  5. 关闭命令方块"
+    echo ""
+    echo "  6. 更换阿里云安装源（非开发人员勿动）"
+    echo ""
+    echo "  7. 返回主菜单"
+    echo "----------------------------------------${none}"
 
     read -e -p "请输入对应的数字：" num
     case $num in
@@ -44,13 +51,27 @@ jmenu() {
         echo "关闭正版验证成功！"
         cmenu
         ;;
-    #设置内存
     2)
+        sed -i "s/online-mode=false/online-mode=true/g" server.properties
+        echo "开启正版验证成功！"
+        cmenu
+        ;;
+    3)
         read -p "设置MC Java服务器内存:" neicun
         echo "当前内存为 ${neicun}"
         cmenu
         ;;
-    3)
+    4)
+        sed -i "s/enable-command-block=false/enable-command-block=true/g" server.properties
+        echo "启用命令方块成功！"
+        cmenu
+        ;;
+    5)
+        sed -i "s/enable-command-block=true/enable-command-block=false/g" server.properties
+        echo "关闭命令方块成功！"
+        cmenu
+        ;;
+    6)
         echo "正在更换阿里云安装源"
         sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_$(date "+%y_%m_%d")
         sudo sed -i 's/http:\/\/.*.ubuntu.com/https:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
@@ -59,7 +80,7 @@ jmenu() {
         echo "已更换阿里云安装源！"
         cmenu
         ;;
-    4)
+    7)
         menu
         ;;
     *)
@@ -67,10 +88,13 @@ jmenu() {
         ;;
     esac
 }
+ver() {
+    
+}
 #正片开始
 menu() {
     clear
-    echo "------------MFBL安装程序-----------------"
+    echo "${yellow}------------MFBL安装程序-----------------"
     echo "  1. 一键安装java default + MC java 1.16.5"
     echo ""
     echo "  2. 启动 MC Java 服务端"
@@ -82,7 +106,7 @@ menu() {
     echo "  6. 启动 MC Bedrock 服务端"
     echo ""
     echo "  7. 退出脚本"
-    echo "----------------------------------------"
+    echo "----------------------------------------${none}"
 
     read -e -p "请输入对应的数字：" num
     case $num in
