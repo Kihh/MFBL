@@ -49,7 +49,7 @@ vmenu() {
         wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
         wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
         echo "Java(default-jdk) 安装成功!"
-        cmenu
+        vmenu
         ;;
     2)
         clear
@@ -57,7 +57,7 @@ vmenu() {
         echo "开始下载MC 1.16.5服务端"
         wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar -O server.jar
         echo "MC 1.16.5服务端 下载成功!"
-        cmenu
+        vmenu
         ;;
     3)
         clear
@@ -65,7 +65,7 @@ vmenu() {
         echo "开始下载MC 1.12.2服务端"
         wget https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar -O server.jar
         echo "MC 1.12.2服务端 下载成功!"
-        cmenu
+        vmenu
         ;;
     4)
         menu
@@ -98,27 +98,27 @@ jmenu() {
     1)
         sed -i "s/online-mode=true/online-mode=false/g" server.properties
         echo "关闭正版验证成功！"
-        cmenu
+        jmenu
         ;;
     2)
         sed -i "s/online-mode=false/online-mode=true/g" server.properties
         echo "开启正版验证成功！"
-        cmenu
+        jmenu
         ;;
     3)
         read -p "设置MC Java服务器内存:" neicun
         echo "当前内存为 ${neicun}"
-        cmenu
+        jmenu
         ;;
     4)
         sed -i "s/enable-command-block=false/enable-command-block=true/g" server.properties
         echo "启用命令方块成功！"
-        cmenu
+        jmenu
         ;;
     5)
         sed -i "s/enable-command-block=true/enable-command-block=false/g" server.properties
         echo "关闭命令方块成功！"
-        cmenu
+        jmenu
         ;;
     6)
         echo "正在更换阿里云安装源"
@@ -127,7 +127,7 @@ jmenu() {
         sudo apt update -y
         sudo apt upgrade -y
         echo "已更换阿里云安装源！"
-        cmenu
+        jmenu
         ;;
     7)
         menu
