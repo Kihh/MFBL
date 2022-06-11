@@ -50,7 +50,7 @@ case $num in
     echo "当前内存为 ${neicun}"
     cmenu
 	;;
-    3
+    3)
     echo "正在更换阿里云安装源"
     sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_`date "+%y_%m_%d"`
     sudo sed -i 's/http:\/\/.*.ubuntu.com/https:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
