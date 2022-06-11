@@ -25,6 +25,47 @@ cmenu() {
     echo && echo -n -e "${yellow}* 按回车返回主菜单 *${none}" && read temp
     menu
 }
+jmenu(){
+clear
+echo "------------MC Java 配置-----------------"
+echo "  1. 关闭MC Java正版验证"
+echo ""
+echo "  2. 设置MC Java服务器启动内存(当前：${neicun} ）"
+echo ""
+echo "  3. 更换阿里云安装源"
+echo ""
+echo "  4. 返回主菜单"
+echo "----------------------------------------"
+
+read -e -p "请输入对应的数字：" num
+case $num in
+    1)
+    sed -i "s/online-mode=true/online-mode=false/g" server.properties
+    echo "关闭正版验证成功！"
+    cmenu
+	;;
+    #设置内存
+    2)
+    read -p "设置MC Java服务器内存:" neicun
+    echo "当前内存为 ${neicun}"
+    cmenu
+	;;
+    3
+    echo "正在更换阿里云安装源"
+    sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_`date "+%y_%m_%d"`
+    sudo sed -i 's/http:\/\/.*.ubuntu.com/https:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
+    sudo apt update
+    sudo apt upgrade
+    echo "已更换阿里云安装源！"
+    cmenu
+	;;
+	4)
+	menu
+	;;
+	*)
+	clear
+esac
+}
 #正片开始
 menu(){
 clear
@@ -33,9 +74,7 @@ echo "  1.一键安装java default + MC java 1.16.5"
 echo ""
 echo "  2.启动 MC Java 服务端"
 echo ""
-echo "  3. 关闭MC Java正版验证"
-echo ""
-echo "  4. 设置MC Java服务器启动内存(当前：${neicun} ）"
+echo "  3.MC Java服务端更多配置"
 echo ""
 echo "  5.一键安装MC Bedrock 1.19.1.01"
 echo ""
@@ -66,17 +105,10 @@ case $num in
     cmenu
 	;;
     3)
-    sed -i "s/online-mode=true/online-mode=false/g" server.properties
-    echo "关闭正版验证成功！"
-    cmenu
+    clear
+    jmenu
 	;;
-    #设置内存
     4)
-    read -p "设置MC Java服务器内存:" neicun
-    echo "当前内存为= ${neicun}"
-    cmenu
-	;;
-    5)
     clear
     ubuntu_check
     echo "开始安装MC Bedrock 1.19.1.01"
@@ -86,14 +118,14 @@ case $num in
     echo "MC Bedrock 1.19.1.01安装成功，请执行5开启服务端！"
     cmenu
 	;;
-    6)
+    5)
     clear
     echo "正在启动Minecraft Bedrock服务端"
     LD_LIBRARY_PATH=. ./bedrock_server
     echo "服务端已关闭！"
     cmenu
 	;;
-	7)
+	6)
 	exit 0
 	;;
 	*)
