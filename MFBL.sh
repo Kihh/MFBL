@@ -184,6 +184,7 @@ menu() {
         clear
         ubuntu_check
         echo "开始安装MC Bedrock 1.19.1.01"
+        apt-get update
         apt install -y bash curl sudo screen unzip
         wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.1.01.zip
         unzip bedrock-server-1.19.1.01.zip
