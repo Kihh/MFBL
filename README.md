@@ -25,4 +25,7 @@ https://ide.goorm.io/</br>
 (数据永久保存，退出休眠不山鸡，风控严，支持端口转发)</br>
 </br>
 https://killercoda.com/playgrounds/scenario/ubuntu</br>
-(临时沙箱，测试用，无IP)
+(临时沙箱，用于测试，无IP)</br>
+</br>
+https://cloudstudio.net/</br>
+(每月1000分钟，2核4G高配，国内鸡，退出休眠不山鸡)
