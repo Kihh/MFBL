@@ -192,7 +192,7 @@ menu() {
     2)
         clear
         echo "正在启动Minecraft服务端，已自动同意EULA协议"
-        sudo java -Xms${neicun}m -Xmx${neicun}m -jar server.jar nogui
+        java -Xms${neicun}m -Xmx${neicun}m -jar server.jar nogui
         echo "服务端已关闭！"
         cmenu
         ;;
