@@ -11,7 +11,6 @@ _yellow() { echo -e ${yellow}$*${none}; }
 _magenta() { echo -e ${magenta}$*${none}; }
 _cyan() { echo -e ${cyan}$*${none}; }
 neicun=1024
-port=25565
 error() {
     echo -e "\n$red 输入有误! $none\n"
 }
@@ -93,7 +92,11 @@ jmenu() {
     echo ""
     echo "  6. 更换阿里云安装源（非开发人员勿动）"
     echo ""
-    echo "  7. 返回主菜单"
+    echo "  7. 安装并配置Ngrok内网穿透(官网:ngrok.com)"
+    echo ""
+    echo "  8. 启动Ngrok并内穿25565端口"
+    echo ""
+    echo "  9. 返回主菜单"
     echo "----------------------------------------"
 
     read -e -p "请输入对应的数字：" num
@@ -139,6 +142,23 @@ jmenu() {
         jmenu
         ;;
     7)
+        echo "正在安装Ngrok内穿"
+        wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok-v3-stable-linux-amd64.tgz
+        tar -zxvf ngrok-v3-stable-linux-amd64.tgz
+        read -p "设置Ngrok Authtoken:" ngrokauth
+        ./ngrok config add-authtoken ${ngrokauth}
+        echo "当前Authtoken为 ${ngrokauth}"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        jmenu
+        ;;
+    7)
+        echo "正在启动Ngrok并内穿25565端口"
+        ./ngrok tcp 25565
+        echo "Ngrok内网穿透已关闭！"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        jmenu
+        ;;
+    9)
         menu
         ;;
     *)
