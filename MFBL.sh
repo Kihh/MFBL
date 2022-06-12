@@ -156,11 +156,11 @@ menu() {
     echo ""
     echo "  3. MC Java服务端更多配置"
     echo ""
-    echo "  5. 一键安装MC Bedrock 1.19.1.01"
+    echo "  4. 一键安装MC Bedrock 1.19.1.01"
     echo ""
-    echo "  6. 启动 MC Bedrock 服务端"
+    echo "  5. 启动 MC Bedrock 服务端"
     echo ""
-    echo "  7. 退出脚本"
+    echo "  6. 退出脚本"
     echo "----------------------------------------"
 
     read -e -p "请输入对应的数字：" num
