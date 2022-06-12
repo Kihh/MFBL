@@ -22,4 +22,7 @@ bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL-centos.sh 
 推荐容器测试环境
 </br>
 https://ide.goorm.io/</br>
-(数据永久保存，退出休眠不山鸡，风控严，支持端口转发)
+(数据永久保存，退出休眠不山鸡，风控严，支持端口转发)</br>
+</br>
+https://killercoda.com/playgrounds/scenario/ubuntu</br>
+(临时沙箱，测试用，无IP)
