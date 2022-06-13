@@ -12,7 +12,7 @@ bash -c "$(wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL.sh -O -)"
 由于CDN缓存问题，如果下载到的不是最新版本请等待2-3小时后重新下载部署！
 </br>
 </br>
-#### Centos系统Beta版脚本安装(暂不支持部署Bedrock Server) </br>
+#### Centos一键安装脚本(暂不支持部署Bedrock Server) </br>
 
 ```shell
 bash -c "$(wget https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL-centos.sh -O -)"
