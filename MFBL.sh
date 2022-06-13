@@ -38,7 +38,7 @@ vmenu() {
     echo ""
     echo "  4. 下载MC 1.12.2服务端"
     echo ""
-    echo "  5. 下载MC 1.19服务端"
+    echo "  5. 下载MC 1.19服务端(需安装Java17)"
     echo ""
     echo "  6. 返回主菜单"
     echo "----------------------------------------"
@@ -60,13 +60,25 @@ vmenu() {
     2)
         clear
         ubuntu_check
+        echo "开始安装Java17"
+        apt-get update -y
+        sudo apt install openjdk-17-jre-headless -y
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
+        echo "Java17 安装成功!"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        vmenu
+        ;;
+    3)
+        clear
+        ubuntu_check
         echo "开始下载MC 1.16.5服务端"
         wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar -O server.jar
         echo "MC 1.16.5服务端 下载成功!"
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         vmenu
         ;;
-    3)
+    4)
         clear
         ubuntu_check
         echo "开始下载MC 1.12.2服务端"
@@ -75,7 +87,7 @@ vmenu() {
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         vmenu
         ;;
-    4)
+    5)
         clear
         ubuntu_check
         echo "开始下载MC 1.19服务端"
@@ -84,7 +96,7 @@ vmenu() {
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         vmenu
         ;;    
-    5)
+    6)
         menu
         ;;
     *)
