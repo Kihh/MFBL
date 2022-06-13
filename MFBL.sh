@@ -32,11 +32,15 @@ vmenu() {
     echo "------------MC Java 版本-----------------"
     echo "  1. 安装Java(default-jdk)"
     echo ""
-    echo "  2. 下载MC 1.16.5服务端"
+    echo "  2. 安装Java17(适用于MC 1.18及以上版本)"
     echo ""
-    echo "  3. 下载MC 1.12.2服务端"
+    echo "  3. 下载MC 1.16.5服务端"
     echo ""
-    echo "  4. 返回主菜单"
+    echo "  4. 下载MC 1.12.2服务端"
+    echo ""
+    echo "  5. 下载MC 1.19服务端"
+    echo ""
+    echo "  6. 返回主菜单"
     echo "----------------------------------------"
     
     read -e -p "请输入对应的数字：" num
@@ -72,6 +76,15 @@ vmenu() {
         vmenu
         ;;
     4)
+        clear
+        ubuntu_check
+        echo "开始下载MC 1.19服务端"
+        wget https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar
+        echo "MC 1.19服务端 下载成功!"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        vmenu
+        ;;    
+    5)
         menu
         ;;
     *)
