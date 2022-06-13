@@ -1,4 +1,3 @@
-clear
 red='\e[91m'
 green='\e[92m'
 yellow='\e[93m'
@@ -20,6 +19,9 @@ ubuntu_check() {
         echo "不支持此系统，请使用Ubuntu 20+系统后重新部署！"
         exit 1
     fi
+}
+root_check(){
+    [[ $EUID != 0 ]] && echo -e "${Error} 当前非ROOT账号(或没有ROOT权限)，无法继续操作，请更换ROOT账号或使用 ${Green_background_prefix}sudo su${Font_color_suffix} 命令获取临时ROOT权限（执行后可能会提示输入当前账号的密码）。" && exit 1
 }
 cmenu() {
     echo && echo -n -e "${yellow}* 按回车返回主菜单 *${none}" && read temp
@@ -92,11 +94,7 @@ jmenu() {
     echo ""
     echo "  6. 更换阿里云安装源（非开发人员勿动）"
     echo ""
-    echo "  7. 安装并配置Ngrok内网穿透(官网:ngrok.com)"
-    echo ""
-    echo "  8. 启动Ngrok并内穿25565端口"
-    echo ""
-    echo "  9. 返回主菜单"
+    echo "  7. 返回主菜单"
     echo "----------------------------------------"
 
     read -e -p "请输入对应的数字：" num
@@ -142,23 +140,6 @@ jmenu() {
         jmenu
         ;;
     7)
-        echo "正在安装Ngrok内穿"
-        wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok-v3-stable-linux-amd64.tgz
-        tar -zxvf ngrok-v3-stable-linux-amd64.tgz
-        read -p "设置Ngrok Authtoken:" ngrokauth
-        ./ngrok config add-authtoken ${ngrokauth}
-        echo "当前Authtoken为 ${ngrokauth}"
-        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
-        jmenu
-        ;;
-    7)
-        echo "正在启动Ngrok并内穿25565端口"
-        ./ngrok tcp 25565
-        echo "Ngrok内网穿透已关闭！"
-        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
-        jmenu
-        ;;
-    9)
         menu
         ;;
     *)
@@ -168,6 +149,7 @@ jmenu() {
 }
 #正片开始
 menu() {
+    root_check
     clear
     echo "------------MFBL安装程序-----------------"
     echo "  1. MC Java服务端版本安装"
