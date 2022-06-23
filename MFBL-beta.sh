@@ -68,15 +68,11 @@ omenu() {
     2)
         clear
         ubuntu_check
-        echo "开始安装Java17"
         apt-get update -y
         sudo apt install openjdk-17-jre-headless -y
         wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
         wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
-        echo "Java17 安装成功!"
-        echo "开始下载MC 1.19服务端"
-        wget https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar
-        echo "MC 1.19服务端 下载成功!"
+        wget https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar -O server.jar
         clear
         echo "Java17 + MC 1.19.1 部署完成！"
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
