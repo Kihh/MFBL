@@ -270,21 +270,21 @@ jmenu() {
 menu() {
     root_check
     clear
-    echo "${yellow}------------MFBL安装程序-----------------"
+    echo "------------MFBL安装程序-----------------"
     echo "  1. MC Java服务端版本安装"
     echo ""
-    echo "${yellow}  2. 启动 MC Java 服务端"
+    echo "  2. 启动 MC Java 服务端"
     echo ""
-    echo "${yellow}  3. MC Java服务端更多配置"
+    echo "  3. MC Java服务端更多配置"
     echo ""
-    echo "${yellow}  4. [测试]一键部署"
+    echo "  4. [测试]一键部署"
     echo ""
-    echo "${yellow}  5. 一键安装MC Bedrock 1.19.1.01"
+    echo "  5. 一键安装MC Bedrock 1.19.1.01"
     echo ""
-    echo "${yellow}  6. 启动 MC Bedrock 服务端"
+    echo "  6. 启动 MC Bedrock 服务端"
     echo ""
-    echo "${yellow}  7. 退出脚本"
-    echo "${yellow}----------------------------------------"
+    echo "  7. 退出脚本"
+    echo "----------------------------------------"
     read -e -p "请输入对应的数字：" num
     case $num in
     1)
