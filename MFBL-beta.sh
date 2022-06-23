@@ -270,7 +270,7 @@ jmenu() {
 menu() {
     root_check
     clear
-    _yellow
+    yellow
     echo "------------MFBL安装程序-----------------"
     echo "  1. MC Java服务端版本安装"
     echo ""
@@ -286,7 +286,7 @@ menu() {
     echo ""
     echo "  7. 退出脚本"
     echo "----------------------------------------"
-
+    none
     read -e -p "请输入对应的数字：" num
     case $num in
     1)
