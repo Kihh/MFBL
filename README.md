@@ -1,5 +1,5 @@
 # Minecraft Fast Build in Linux 使用教程
-> 欢迎访问MFBL官方博客，分享MFBL开发日志及实用教程
+> 欢迎访问MFBL官方博客，分享MFBL开发日志及实用教程 </br>
 > 官方网站：blog.mfbl.ml
 ### Ubuntu一键安装脚本</br>
 ```shell
