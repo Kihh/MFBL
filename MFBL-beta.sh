@@ -55,7 +55,7 @@ Ngrokmenu() {
     case $num in
     1)
         clear
-        wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok-stable-linux-amd64.zip
+        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok-stable-linux-amd64.zip
         apt install unzip -y
         unzip ngrok-stable-linux-amd64.zip
         chmod +x ngrok
