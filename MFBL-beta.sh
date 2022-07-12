@@ -398,20 +398,22 @@ jmenu() {
 menu() {
     root_check
     clear
-    echo "------------MFBL安装程序-----------------"
+    echo "--------------MFBL安装程序---------------"
     echo "  1. MC Java服务端版本安装"
     echo ""
     echo "  2. 启动 MC Java 服务端"
     echo ""
     echo "  3. MC Java服务端更多配置"
     echo ""
-    echo "  4. 一键部署"
+    echo "  4. MFBL一键部署"
     echo ""
     echo "  5. 一键安装MC Bedrock 1.19.1.01"
     echo ""
     echo "  6. 启动 MC Bedrock 服务端"
     echo ""
-    echo "  7. 退出脚本"
+    echo "  7. MFBL更多工具"
+    echo ""
+    echo "  8. 退出脚本"
     echo "----------------------------------------"
     read -e -p "请输入对应的数字：" num
     case $num in
@@ -453,7 +455,11 @@ menu() {
         echo "服务端已关闭！"
         cmenu
         ;;
-    7)
+    4)
+        clear
+        tmenu
+        ;;
+    8)
         exit 0
         ;;
     *)
