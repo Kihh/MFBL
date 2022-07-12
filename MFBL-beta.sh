@@ -97,7 +97,7 @@ Ngrokmenu() {
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         Ngrokmenu
         ;;
-    4)
+    5)
         clear
         echo "curl -s http://localhost:4040/api/tunnels | python3 -c \"import sys, json; print(\\\"内网穿透地址:\\\n\\\",\\\"\\\"+json.load(sys.stdin)['tunnels'][0]['public_url'][6:].replace(':', ':'),\\\"\\\n\\\")\" || echo \"\n错误：请检查Ngrok是否开启\n\""
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
@@ -169,7 +169,7 @@ tmenu() {
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         tmenu
         ;;
-    8)
+    5)
         menu
         ;;
     *)
