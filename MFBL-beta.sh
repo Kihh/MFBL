@@ -49,7 +49,7 @@ Ngrokmenu() {
     echo ""
     echo "  6. 卸载Ngrok内网穿透工具"
     echo ""
-    echo "  7. 返回主菜单"
+    echo "  7. 返回更多工具"
     echo "----------------------------------------"
     read -e -p "请输入对应的数字：" num
     case $num in
@@ -112,7 +112,7 @@ Ngrokmenu() {
         ;;
     7)
         clear
-        menu
+        tmenu
         ;;
     *)
         clear
@@ -128,7 +128,9 @@ tmenu() {
     echo ""  
     echo "  3. Ngrok内网穿透配置"
     echo ""
-    echo "  4. 返回主菜单"
+    echo "  4. 更换阿里云安装源（非开发人员勿动）"
+    echo ""
+    echo "  5. 返回主菜单"
     echo "----------------------------------------"
     read -e -p "请输入对应的数字：" num
     case $num in
@@ -152,10 +154,23 @@ tmenu() {
         clear
         echo "Java环境卸载完成，此功能仅能卸载APT及脚本内安装的Java环境，若不能完全卸载编译安装的Java环境请手动卸载！"
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
-        omenu
+        tmenu
         ;;
     3)
         Ngrokmenu
+        ;;
+    4)
+        echo "正在更换阿里云安装源"
+        sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_$(date "+%y_%m_%d")
+        sudo sed -i 's/http:\/\/.*.ubuntu.com/https:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
+        sudo apt update -y
+        sudo apt upgrade -y
+        echo "已更换阿里云安装源！"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        tmenu
+        ;;
+    8)
+        menu
         ;;
     *)
         clear
@@ -339,9 +354,7 @@ jmenu() {
     echo ""
     echo "  5. 关闭命令方块"
     echo ""
-    echo "  6. 更换阿里云安装源（非开发人员勿动）"
-    echo ""
-    echo "  7. 返回主菜单"
+    echo "  6. 返回主菜单"
     echo "----------------------------------------"
 
     read -e -p "请输入对应的数字：" num
@@ -377,16 +390,6 @@ jmenu() {
         jmenu
         ;;
     6)
-        echo "正在更换阿里云安装源"
-        sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_$(date "+%y_%m_%d")
-        sudo sed -i 's/http:\/\/.*.ubuntu.com/https:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
-        sudo apt update -y
-        sudo apt upgrade -y
-        echo "已更换阿里云安装源！"
-        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
-        jmenu
-        ;;
-    7)
         menu
         ;;
     *)
