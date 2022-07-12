@@ -20,12 +20,84 @@ ubuntu_check() {
         exit 1
     fi
 }
+java_check() {
+    command -v java >/dev/null 2>&1
+    if [[ $? != 0 ]]; then
+        echo "当前未安装Java，请安装后启动服务器！"
+        cmenu
+    fi
+}
 root_check(){
     [[ $EUID != 0 ]] && echo -e "${Error} 当前非ROOT账号(或没有ROOT权限)，无法继续操作，请更换ROOT账号或使用 ${Green_background_prefix}sudo su${Font_color_suffix} 命令获取临时ROOT权限（执行后可能会提示输入当前账号的密码）。" && exit 1
 }
 cmenu() {
     echo && echo -n -e "${yellow}* 按回车返回主菜单 *${none}" && read temp
     menu
+}
+omenu() {
+    clear
+    echo "-------------MC 一键部署-----------------"
+    echo "  1. 部署Java + MC 1.16.5 服务端"
+    echo ""
+    echo "  2. 部署Java17 + MC 1.19.1"
+    echo "" 
+    echo "  3. 部署Spigot-1.8.8起床战争整合包"
+    echo ""
+    echo "  4. 返回主菜单"
+    echo "----------------------------------------"
+    
+    read -e -p "请输入对应的数字：" num
+    case $num in
+    1)
+        clear
+        ubuntu_check
+        echo "开始安装Java(default-jdk)"
+        apt-get update -y
+        sudo apt install default-jdk -y
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
+        echo "Java(default-jdk) 安装成功!"
+        echo "开始下载MC 1.16.5服务端"
+        wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar -O server.jar
+        echo "MC 1.16.5服务端 下载成功!"
+        clear
+        echo "Java + MC 1.16.5 部署完成！"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        omenu
+        ;;
+    2)
+        clear
+        ubuntu_check
+        apt-get update -y
+        sudo apt install openjdk-17-jre-headless -y
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/eula.txt
+        wget https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/server.properties
+        wget https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar -O server.jar
+        clear
+        echo "Java17 + MC 1.19.1 部署完成！"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        omenu
+        ;;
+    3)
+        clear
+        ubuntu_check
+        echo "开始部署Spigot-1.8.8起床战争整合包"
+        apt-get update -y
+        sudo apt install openjdk-8-jre-headless -y
+        wget https://mfblserverfile-kaggw.run-us-west2.goorm.io/mfblbedwars.zip
+        apt install unzip -y
+        unzip mfblbedwars.zip
+        echo "Spigot-1.8.8起床战争整合包部署完成！"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        omenu
+        ;;
+    4)
+        menu
+        ;;
+    *)
+        clear
+        ;;
+    esac
 }
 vmenu() {
     clear
@@ -36,11 +108,15 @@ vmenu() {
     echo ""
     echo "  3. 下载MC 1.16.5服务端"
     echo ""
-    echo "  4. 下载MC 1.12.2服务端"
+    echo "  4. 下载MC 1.15.2服务端"
     echo ""
-    echo "  5. 下载MC 1.19服务端(需安装Java17)"
+    echo "  5. 下载MC 1.14.4服务端"
     echo ""
-    echo "  6. 返回主菜单"
+    echo "  6. 下载MC 1.12.2服务端"
+    echo ""
+    echo "  7. 下载MC 1.19服务端(需安装Java17)"
+    echo ""
+    echo "  8. 返回主菜单"
     echo "----------------------------------------"
     
     read -e -p "请输入对应的数字：" num
@@ -81,13 +157,31 @@ vmenu() {
     4)
         clear
         ubuntu_check
+        echo "开始下载MC 1.15.2服务端"
+        wget https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar -O server.jar
+        echo "MC 1.15.2服务端 下载成功!"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        vmenu
+        ;;
+    5)
+        clear
+        ubuntu_check
+        echo "开始下载MC 1.14.4服务端"
+        wget https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar -O server.jar
+        echo "MC 1.14.4服务端 下载成功!"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
+        vmenu
+        ;;
+    6)
+        clear
+        ubuntu_check
         echo "开始下载MC 1.12.2服务端"
         wget https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar -O server.jar
         echo "MC 1.12.2服务端 下载成功!"
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         vmenu
         ;;
-    5)
+    7)
         clear
         ubuntu_check
         echo "开始下载MC 1.19服务端"
@@ -96,7 +190,7 @@ vmenu() {
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         vmenu
         ;;    
-    6)
+    8)
         menu
         ;;
     *)
@@ -183,13 +277,14 @@ menu() {
     echo ""
     echo "  3. MC Java服务端更多配置"
     echo ""
-    echo "  4. 一键安装MC Bedrock 1.19.1.01"
+    echo "  4. 一键部署"
     echo ""
-    echo "  5. 启动 MC Bedrock 服务端"
+    echo "  5. 一键安装MC Bedrock 1.19.1.01"
     echo ""
-    echo "  6. 退出脚本"
+    echo "  6. 启动 MC Bedrock 服务端"
+    echo ""
+    echo "  7. 退出脚本"
     echo "----------------------------------------"
-
     read -e -p "请输入对应的数字：" num
     case $num in
     1)
@@ -199,6 +294,7 @@ menu() {
     2)
         clear
         echo "正在启动Minecraft服务端，已自动同意EULA协议"
+        java_check
         java -Xms${neicun}m -Xmx${neicun}m -jar server.jar nogui
         echo "服务端已关闭！"
         cmenu
@@ -209,6 +305,10 @@ menu() {
         ;;
     4)
         clear
+        omenu
+        ;;
+    5)
+        clear
         ubuntu_check
         echo "开始安装MC Bedrock 1.19.1.01"
         apt-get update
@@ -218,14 +318,14 @@ menu() {
         echo "MC Bedrock 1.19.1.01安装成功，请执行5开启服务端！"
         cmenu
         ;;
-    5)
+    6)
         clear
         echo "正在启动Minecraft Bedrock服务端"
         LD_LIBRARY_PATH=. ./bedrock_server
         echo "服务端已关闭！"
         cmenu
         ;;
-    6)
+    7)
         exit 0
         ;;
     *)
