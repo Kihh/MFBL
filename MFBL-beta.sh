@@ -458,7 +458,7 @@ menu() {
         echo "服务端已关闭！"
         cmenu
         ;;
-    4)
+    7)
         clear
         tmenu
         ;;
