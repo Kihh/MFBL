@@ -24,7 +24,7 @@ wget --no-check-certificate https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL.s
 #### Beta测试版
 
 ```shell
-bash -c "$(wget --no-check-certificate https://raw.githubusercontent.com/Kihh/MFBL/main/MFBL-beta.sh -O -)"
+wget --no-check-certificate https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL-beta.sh -O MFBL.sh && bash MFBL-beta.sh
 ```
 测试版本在使用过程中可能出现不可预料的问题，谨慎使用
 </br>
