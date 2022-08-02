@@ -15,7 +15,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/Kihh/MFBL/main/MFB
 ```shell
 wget --no-check-certificate https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL.sh -O MFBL.sh && bash MFBL.sh
 ```
-由于CDN缓存问题，如果下载到的不是最新版本请等待2-3小时后重新下载部署！
+由于CDN缓存问题，如果下载到的不是最新版本请等待5-10分钟后重新下载部署！
 </br>
 </br>
 
