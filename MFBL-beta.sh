@@ -55,7 +55,7 @@ Ngrokmenu() {
     case $num in
     1)
         clear
-        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok-stable-linux-amd64.zip
+        wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok-stable-linux-amd64.zip
         apt install unzip -y
         unzip ngrok-stable-linux-amd64.zip
         chmod +x ngrok
@@ -99,7 +99,7 @@ Ngrokmenu() {
         ;;
     5)
         clear
-        echo "curl -s http://localhost:4040/api/tunnels | python3 -c \"import sys, json; print(\\\"内网穿透地址:\\\n\\\",\\\"\\\"+json.load(sys.stdin)['tunnels'][0]['public_url'][6:].replace(':', ':'),\\\"\\\n\\\")\" || echo \"\n错误：请检查Ngrok是否开启\n\""
+        curl -s http://localhost:4040/api/tunnels
         echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         Ngrokmenu
         ;;    
@@ -149,7 +149,7 @@ tmenu() {
     2)
         clear
         java_check
-        echo "正在卸载Java"
+        echo "正在卸载Java，中途可能需手动确认操作"
         apt-get purge default-jdk
         apt-get purge openjdk-17-jre-headless
         apt-get purge openjdk-8-jre-headless
@@ -163,7 +163,8 @@ tmenu() {
     3)
         Ngrokmenu
         ;;
-    4)
+    4)  
+        echo && echo -n -e "警告：此项会覆盖系统的安装源，且现有安装源会备份至/etc/apt/sources.list.bak_date，按回车键继续，或按Ctrl+C退出脚本" && read temp
         echo "正在更换阿里云安装源"
         root_check
         sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_$(date "+%y_%m_%d")
@@ -180,6 +181,7 @@ tmenu() {
         echo "152.199.39.108 launcher.mojang.com" >> /etc/hosts
         echo "23.63.242.178 minecraft.azureedge.net" >> /etc/hosts
         echo "已添加hosts！"
+        echo && echo -n -e "${yellow}* 按回车继续 *${none}" && read temp
         tmenu
         ;;
     6)
