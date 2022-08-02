@@ -55,7 +55,8 @@ Ngrokmenu() {
     case $num in
     1)
         clear
-        wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O ngrok-stable-linux-amd64.zip
+        echo "此处考虑到中国服务器下载慢，仅使用cloudflare代理了下载文件而已，非魔改过的软件请勿造谣！"
+        wget --no-check-certificate https://npdp.pages.dev/ngrok-stable-linux-amd64.zip -O ngrok-stable-linux-amd64.zip
         apt install unzip -y
         unzip ngrok-stable-linux-amd64.zip
         chmod +x ngrok
