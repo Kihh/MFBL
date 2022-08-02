@@ -1,4 +1,6 @@
 ## 👏 Use MFBL to quickly deploy Minecraft server in Linux
+[Chinese document](https://github.com/Kihh/MFBL/blob/main/README.md) | English document</br>
+</br>
 If your server itself is not well configured and still runs Windows Server system, how can you still run Minecraft server? </br>
 So deploying Minecraft in a Linux distribution system is an excellent choice, but the command line is always more difficult to use than the graphical interface. This project can use Shell script instead of GUI to achieve the same effect</br>
 </br>
