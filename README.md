@@ -10,7 +10,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/Kihh/MFBL/main/MFB
 ```
 后续运行无需再次下载直接输入```bash MFBL.sh```即可
 
-#### 国内主机请使用jsdelivr代理线路安装 </br>
+#### 国内主机请使用jsdelivrCDN线路安装 </br>
 
 ```shell
 wget --no-check-certificate https://fastly.jsdelivr.net/gh/Kihh/MFBL@main/MFBL.sh -O MFBL.sh && bash MFBL.sh
