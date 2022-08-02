@@ -1,5 +1,5 @@
 ## 👏使用MFBL，在Linux系统中快速部署Minecraft服务器
-中文文档 | [英文文档](https://github.com/Kihh/MFBL/blob/main/README-en-us.md)
+中文文档 | [英文文档](https://github.com/Kihh/MFBL/blob/main/README-en-us.md)</br>
 如果你的服务器本身配置不高，还跑WindowsServer系统，那还怎么跑Minecraft服务器？</br>
 所以在Linux发行版系统中部署Minecraft是绝佳选择，但命令行用起来始终比图形界面困难，此项目可以使用Shell脚本代替GUI，达到一样的效果</br>
 </br>
