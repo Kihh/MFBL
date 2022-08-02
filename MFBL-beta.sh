@@ -121,7 +121,7 @@ Ngrokmenu() {
 }
 tmenu() {
     clear
-    echo "--------------MFBL更多工具----------------"
+    echo "----------------MFBL更多工具-----------------"
     echo "  1. 更新软件源和软件"
     echo ""
     echo "  2. 卸载所有Java环境"
@@ -130,12 +130,15 @@ tmenu() {
     echo ""
     echo "  4. 更换阿里云安装源（非开发人员勿动）"
     echo ""
-    echo "  5. 返回主菜单"
-    echo "----------------------------------------"
+    echo "  5. 添加适用于中国服务器下载MC官方服务端hosts"
+    echo ""
+    echo "  6. 返回主菜单"
+    echo "--------------------------------------------"
     read -e -p "请输入对应的数字：" num
     case $num in
     1)
         clear
+        echo "正在更新软件源和软件"
         apt-get update
         apt-get upgrade
         clear
@@ -146,6 +149,7 @@ tmenu() {
     2)
         clear
         java_check
+        echo "正在卸载Java"
         apt-get purge default-jdk
         apt-get purge openjdk-17-jre-headless
         apt-get purge openjdk-8-jre-headless
@@ -161,6 +165,7 @@ tmenu() {
         ;;
     4)
         echo "正在更换阿里云安装源"
+        root_check
         sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak_$(date "+%y_%m_%d")
         sudo sed -i 's/http:\/\/.*.ubuntu.com/https:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
         sudo apt update -y
@@ -170,6 +175,14 @@ tmenu() {
         tmenu
         ;;
     5)
+        echo "正在添加hosts"
+        root_check
+        echo "152.199.39.108 launcher.mojang.com" >> /etc/hosts
+        echo "23.63.242.178 minecraft.azureedge.net" >> /etc/hosts
+        echo "已添加hosts！"
+        tmenu
+        ;;
+    6)
         menu
         ;;
     *)
@@ -427,6 +440,7 @@ menu() {
     2)
         clear
         echo "正在启动Minecraft服务端，已自动同意EULA协议"
+        root_check
         java_check
         java -Xms${neicun}m -Xmx${neicun}m -jar server.jar nogui
         echo "服务端已关闭！"
@@ -448,12 +462,13 @@ menu() {
         apt install -y bash curl sudo screen unzip
         wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.1.01.zip
         unzip bedrock-server-1.19.1.01.zip
-        echo "MC Bedrock 1.19.1.01安装成功，请执行5开启服务端！"
+        echo "MC Bedrock 1.19.1.01安装成功，请执行6开启服务端！"
         cmenu
         ;;
     6)
         clear
         echo "正在启动Minecraft Bedrock服务端"
+        root_check
         LD_LIBRARY_PATH=. ./bedrock_server
         echo "服务端已关闭！"
         cmenu
