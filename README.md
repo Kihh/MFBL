@@ -1,4 +1,5 @@
 ## 👏使用MFBL，在Linux系统中快速部署Minecraft服务器
+# 因其他原因，停止更新，MC 1.19.1 前均可正常开服
 中文文档 | [英文文档](https://github.com/Kihh/MFBL/blob/main/README-en-us.md)</br>
 </br>
 如果你的服务器本身配置不高，还跑WindowsServer系统，那还怎么跑Minecraft服务器？</br>
